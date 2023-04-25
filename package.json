@@ -1,0 +1,29 @@
+{
+  "name": "gapproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node core/configuration/test-runner.js --suite=%npm_config_suite%"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ausiankova-A/GapProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ausiankova-A/GapProject/issues"
+  },
+  "homepage": "https://github.com/Ausiankova-A/GapProject#readme",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "playwright": "^1.32.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.32.3",
+    "yargs": "^17.7.1"
+  }
+}
