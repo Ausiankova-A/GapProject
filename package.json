@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node core/configuration/test-runner.js --suite=%npm_config_suite%"
+    "test": "node core/configuration/test-runner.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,6 @@
     "playwright": "^1.32.3"
   },
   "devDependencies": {
-    "@playwright/test": "^1.32.3",
-    "yargs": "^17.7.1"
+    "@playwright/test": "^1.32.3"
   }
 }
