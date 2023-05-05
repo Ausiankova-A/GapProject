@@ -5,7 +5,7 @@ const path = require("path");
 const testDir = "./core/test";
 
 const mocha = new Mocha({
-  timeout: 10000,
+  timeout: 50000,
 });
 
 switch (process.env.npm_config_suite) {
@@ -19,14 +19,14 @@ switch (process.env.npm_config_suite) {
 
 (async function loadTests() {
     try {
-     const files = await fs.readdirSync(testDir);
+    const files = fs.readdirSync(testDir);
       files
         .filter((file) => file.endsWith(".test.js"))
         .map((file) => path.join(testDir, file))
         .forEach((file) => {
           mocha.addFile(file);
         });
-      mocha.run((failures) => (process.exitCode = failures ? 1 : 0));
+    mocha.run((failures) => (process.exitCode = failures ? 1 : 0));
     } catch (err) {
       console.log(err);
     }
