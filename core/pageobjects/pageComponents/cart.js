@@ -1,39 +1,38 @@
 class Cart {
-    constructor(page) {
-        this.page = page;
-        this.CartButton = '.top-panel__userbar__cart__item';
-        this.FirstItemTitle = '.goods-table-cell__line.goods-table-cell__line_title';
-        this.ItemTitle = '.goods-table-cell__line.goods-table-cell__line_title';
-        this.ItemCheckbox = '.goods-table__cell.goods-table__cell_first .i-checkbox_large';
-        this.CheckAllCheckbox = '.checkAll';
-        this.EmptyCartTitle = '.i-textual__plain.i-textual__plain_arrow.i-textual__plain_limited';
-        this.CheckoutButton = '.deal-form-footer__control';
-        this.DeliveryAddressButton = '.deal-form-main__input_faded.deal-form-main__input_valid';
-        this.AddAddressButton = '.i-context-box-main__footer-cell .i-button_gray.i-button_large';
-        this.DeliveryStreet = '#i-street';
-        this.DeliveryHouse = '#i-house';
-        this.DeliveryFlat = '#i-flat';
-        this.DeliveryEntrance = '#i-entrance';
-        this.DeliveryFloor = '#i-floor';
-        this.AddAddress = '.i-context-box-list__input_link';
-        this.DeliveryAddressField = '.deal-form-main__input.deal-form-main__input_popup.i-input.i-input_no-border-radius.deal-form-main__input_faded.deal-form-main__input_valid';
-        this.NameSurnameErrorMessage = '#enter-fullname .i-popover__main';
-        this.NameField = '#enter-fullname .deal-form-main__input';
-        this.NameFieldData = '.deal-form-main__placeholder-h';
-        this.PaymentMethodField = '#select-payment-link';
-        this.PaymentByInstallmentCard = '.payment-methods li:nth-child(2)';
-        this.PaymentMethodFieldData = '#select-payment-link .i-input__sub:first-child';
-        this.FirstItemInCart = '.goods-table__body :nth-child(2) .i-checkbox.i-checkbox_large';
-        this.DeleteItemButton = '.goods-table-cell__sub-cell_button .i-button_small.remove';
-        this.DeletionConfirmationButton = '.goods-table-popup__cell .remove-yes';
-        this.MoveToFavoritesButton = '.goods-table-cell__sub-cell_button .i-button_small.addto-favs';
-        this.ConfirmationMoveToFavoritesButton = '.goods-table-popup__cell .addto-favs-yes';
-        this.CheckoutErrorMessage = '.error-main .i-popover__main';
+    constructor() {
+        this.cartButton = '.top-panel__userbar__cart__item';
+        this.firstItemTitle = '.goods-table-cell__line.goods-table-cell__line_title';
+        this.itemTitle = '.goods-table-cell__line.goods-table-cell__line_title';
+        this.itemCheckbox = '.goods-table__cell.goods-table__cell_first .i-checkbox_large';
+        this.checkAllCheckbox = '.checkAll';
+        this.emptyCartTitle = '.i-textual__plain.i-textual__plain_arrow.i-textual__plain_limited';
+        this.checkoutButton = '.deal-form-footer__control';
+        this.deliveryAddressButton = '.deal-form-main__input_faded.deal-form-main__input_valid';
+        this.addAddressButton = '.i-context-box-main__footer-cell .i-button_gray.i-button_large';
+        this.deliveryStreet = '#i-street';
+        this.deliveryHouse = '#i-house';
+        this.deliveryFlat = '#i-flat';
+        this.deliveryEntrance = '#i-entrance';
+        this.deliveryFloor = '#i-floor';
+        this.addAddress = '.i-context-box-list__input_link';
+        this.deliveryAddressField = '.deal-form-main__input.deal-form-main__input_popup.i-input.i-input_no-border-radius.deal-form-main__input_faded.deal-form-main__input_valid';
+        this.nameSurnameErrorMessage = '#enter-fullname .i-popover__main';
+        this.nameField = '#enter-fullname .deal-form-main__input';
+        this.nameFieldData = '.deal-form-main__placeholder-h';
+        this.paymentMethodField = '#select-payment-link';
+        this.paymentByInstallmentCard = '.payment-methods li:nth-child(2)';
+        this.paymentMethodFieldData = '#select-payment-link .i-input__sub:first-child';
+        this.firstItemInCart = '.goods-table__body :nth-child(2) .i-checkbox.i-checkbox_large';
+        this.deleteItemButton = '.goods-table-cell__sub-cell_button .i-button_small.remove';
+        this.deletionConfirmationButton = '.goods-table-popup__cell .remove-yes';
+        this.moveToFavoritesButton = '.goods-table-cell__sub-cell_button .i-button_small.addto-favs';
+        this.confirmationMoveToFavoritesButton = '.goods-table-popup__cell .addto-favs-yes';
+        this.checkoutErrorMessage = '.error-main .i-popover__main';
     }
 
     async moveToFavorites(page) { 
-      await page.locator(this.MoveToFavoritesButton).click();
-      await page.locator(this.ConfirmationMoveToFavoritesButton).click();
+      await page.locator(this.moveToFavoritesButton).click();
+      await page.locator(this.confirmationMoveToFavoritesButton).click();
     }
   }
     
