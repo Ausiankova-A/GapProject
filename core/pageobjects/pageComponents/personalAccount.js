@@ -1,12 +1,11 @@
 class PersonalAccount {
-    constructor(page) {
-        this.page = page;
-        this.PersonalAccountButton = '.top-panel__userbar__user__name__inner';
-        this.PersonalAccountHeader = '.l-row-user-name h1';
-        this.ExitButton = '.l-col-3 .uc-nav.uc-nav-last li a';
-        this.FavoritesArea = '.viewer-type-card__wrapper #goods-table';
-        this.FavoritesTitle = '.item-type-card__title';
-        this.FavoritesTab = '#user-tab-wishlist';
+    constructor() {
+        this.personalAccountButton = '.top-panel__userbar__user__name__inner';
+        this.personalAccountHeader = '.l-row-user-name h1';
+        this.exitButton = '.l-col-3 .uc-nav.uc-nav-last li a';
+        this.favoritesArea = '.viewer-type-card__wrapper #goods-table';
+        this.favoritesTitle = '.item-type-card__title';
+        this.favoritesTab = '#user-tab-wishlist';
     }
   }
     
