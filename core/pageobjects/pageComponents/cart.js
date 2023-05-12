@@ -1,5 +1,8 @@
-class Cart {
+const { BaseElements } = require("../baseElements");
+
+class Cart extends BaseElements {
     constructor() {
+        super();
         this.cartButton = '.top-panel__userbar__cart__item';
         this.firstItemTitle = '.goods-table-cell__line.goods-table-cell__line_title';
         this.itemTitle = '.goods-table-cell__line.goods-table-cell__line_title';

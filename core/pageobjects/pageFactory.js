@@ -4,6 +4,7 @@ const { Cart } = require("../pageobjects/pageComponents/cart");
 const { LoginPage } = require("../pageobjects/pageComponents/login");
 const { PersonalAccount } = require("../pageobjects/pageComponents/personalAccount");
 const { MainPage } = require("../pageobjects/mainPage");
+const { BaseElements } = require("../pageobjects/baseElements");
 
 
 class PageFactory {
@@ -13,6 +14,7 @@ class PageFactory {
     loginPage = new LoginPage();
     personalAccount = new PersonalAccount();
     mainPage = new MainPage();
+    baseElements = new BaseElements();
   }
   
   module.exports = {
