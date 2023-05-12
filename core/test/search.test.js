@@ -26,18 +26,18 @@ describe('Testing "Search" function for "Oz" website', () => {
 
   it('The first search result meets the request', async () => {
     await pageFactory.mainPage.navigate(page, "https://oz.by/");
-    await pageFactory.mainPage.type(page,pageFactory.search.searchField,'Гарри Поттер');
-    await pageFactory.mainPage.click(page,pageFactory.search.searchButton);
-    await pageFactory.mainPage.click(page,pageFactory.search.firstSearchResult);
-    const itemPage = await pageFactory.mainPage.getText(page, pageFactory.search.productName);
+    await pageFactory.search.type(page,'searchField','Гарри Поттер');
+    await pageFactory.search.click(page,'searchButton');
+    await pageFactory.search.click(page,'firstSearchResult');
+    const itemPage = await pageFactory.search.getText(page,'productName');
     expect(itemPage).to.contain('Гарри Поттер');
   }); 
   
   it('The correct message is returned when the search data is invalid', async () => {
     await pageFactory.mainPage.navigate(page, "https://oz.by/");
-    await pageFactory.mainPage.type(page,pageFactory.search.searchField,'цщцщцкш');
-    await pageFactory.mainPage.click(page,pageFactory.search.searchButton);
-    const searchResults = await pageFactory.mainPage.getText(page, pageFactory.search.invalidSearchResult);
+    await pageFactory.search.type(page,'searchField','цщцщцкш');
+    await pageFactory.search.click(page,'searchButton');
+    const searchResults = await pageFactory.search.getText(page, 'invalidSearchResult');
     expect(searchResults).to.contain('По запросу «цщцщцкш» ничего не найдено');
   });
 });

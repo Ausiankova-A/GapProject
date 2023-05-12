@@ -1,5 +1,8 @@
-class LoginPage {
+const { BaseElements } = require("../baseElements");
+
+class LoginPage extends BaseElements {
     constructor() {
+        super();
         this.enterPage = ".top-panel__userbar__auth__ico";
         this.loginFromEmail = "#loginFormLoginEmailLink";
         this.emailField = "#loginForm .i-popup__input:first-child";
