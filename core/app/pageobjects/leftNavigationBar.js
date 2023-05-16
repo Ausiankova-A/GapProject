@@ -1,0 +1,12 @@
+const { BaseElements } = require("./baseElements");
+
+class LeftNavBar extends BaseElements {
+  constructor(page) {
+    super();
+    this.page = page;
+    this.navigationLinks = '.menu-link-action.main-nav__list__item';
+    this.booksSection = ".main-nav__list__li_wnav:nth-child(3)";
+  }
+}
+
+module.exports = { LeftNavBar };
