@@ -1,4 +1,4 @@
-const { BaseElements } = require("./baseElements");
+const { BaseElements } = require("./baseElements.js");
 
 class LeftNavBar extends BaseElements {
   constructor(page) {

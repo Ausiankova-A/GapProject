@@ -1,4 +1,4 @@
-const { BaseElements } = require("../baseElements");
+const { BaseElements } = require("../baseElements.js");
 
 class Cart extends BaseElements {
   constructor(page) {

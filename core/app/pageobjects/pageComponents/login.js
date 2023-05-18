@@ -1,4 +1,4 @@
-const { BaseElements } = require("../baseElements");
+const { BaseElements } = require("../baseElements.js");
 
 class LoginPage extends BaseElements {
   constructor(page) {
