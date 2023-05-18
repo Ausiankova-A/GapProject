@@ -1,4 +1,4 @@
-const { BaseElements } = require("../baseElements");
+const { BaseElements } = require("../baseElements.js");
 const { ItemPage } = require("../itemPage");
 const itemPage = new ItemPage();
 

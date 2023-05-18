@@ -1,6 +1,11 @@
+const logger = require('../../../logger');
+const {getPage} = require('../../test/globalHooks');
+
+console.log(getPage());
+
 class BaseElements {
-  constructor(page) {
-    this.page = page;
+  constructor() {
+    this.page = getPage();
   }
   async click(elementName) {
     const selector = this[elementName];
@@ -8,26 +13,31 @@ class BaseElements {
       waitFor: "visible",
       timeout: 10000,
     });
+    logger.error('`Click: ${elementName}`');
     return this.page.locator(selector).click();
   }
 
   async type(elementName, product) {
     const selector = this[elementName];
+    logger.error('`Type: ${product} to ${elementName}`');
     await this.page.locator(selector).type(product);
   }
 
   async getText(elementName) {
     const selector = this[elementName];
+    logger.error('`Get text: ${elementName}`');
     return await this.page.locator(selector).textContent();
   }
 
-  async getRole(elementName) {
-    const selector = this[elementName];
-    return await this.page.locator(selector).innerText();
-  }
+  // async getRole(elementName) {
+  //   const selector = this[elementName];
+  //   return await this.page.locator(selector).innerText();
+  // }
 
   async navigate(url) {
-    return this.page.goto(url);
+    logger.error('`Navigated to: ${url}`');
+    return await this.page.goto(url);
+   
   }
 }
 

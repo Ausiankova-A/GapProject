@@ -1,4 +1,4 @@
-const { BaseElements } = require("../baseElements");
+const { BaseElements } = require("../baseElements.js");
 
 class PersonalAccount extends BaseElements {
   constructor(page) {
