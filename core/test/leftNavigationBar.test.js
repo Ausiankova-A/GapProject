@@ -1,27 +1,9 @@
-// const { chromium } = require("playwright");
 // const { expect } = require("chai");
 // const { PageFactory } = require("../app/pageobjects/pageFactory");
 
+// const pageFactory = new PageFactory();
+
 // describe('Testing Left Navigation Bar for "Oz" website', () => {
-//   let browser;
-//   let page;
-
-//   before(async () => {
-//     browser = await chromium.launch({ headless: false });
-//   });
-
-//   after(async () => {
-//     await browser.close();
-//   });
-
-//   beforeEach(async () => {
-//     page = await browser.newPage();
-//   });
-
-//   afterEach(async () => {
-//     await page.close();
-//   });
-
 //   const testData = [
 //     { number: "1", linkText: "Акции и скидки" },
 //     { number: "2", linkText: "Подарки для каждого" },
@@ -41,7 +23,6 @@
 
 //   testData.forEach((data) => {
 //     it(`Check names of left navigation menu links - ${data.number}`, async () => {
-//       const pageFactory = new PageFactory(page);
 //       await pageFactory.mainPage.navigate("https://oz.by/");
 //     //   const navLinks = await pageFactory.leftNavBar.getText("navigationLinks");
 //       const navLinks = await pageFactory.leftNavBar.getRole("navigationLinks");

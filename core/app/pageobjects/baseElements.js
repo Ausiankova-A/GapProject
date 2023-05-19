@@ -1,44 +1,72 @@
-const logger = require('../../../logger');
-const {getPage} = require('../../test/globalHooks');
-
-console.log(getPage());
+const logger = require("../../../logger");
+const ph = require("../pageHolder");
 
 class BaseElements {
-  constructor() {
-    this.page = getPage();
-  }
-  async click(elementName) {
-    const selector = this[elementName];
-    await this.page.waitForSelector(selector, {
-      waitFor: "visible",
-      timeout: 10000,
-    });
-    logger.error('`Click: ${elementName}`');
-    return this.page.locator(selector).click();
-  }
+    constructor() {
+        this._page = null;
+    }
+    updatePage() {
+        if (this._page) {
+            if (ph.page && ph.page !== this._page) {
+                this._page = ph.page;
+            }
+        } else {
+            if (ph.page) {
+                this._page = ph.page;
+            } else {
+                logger.error("Error occurred:", error);
+            }
+        }
+    }
 
-  async type(elementName, product) {
-    const selector = this[elementName];
-    logger.error('`Type: ${product} to ${elementName}`');
-    await this.page.locator(selector).type(product);
-  }
+    get page() {
+        this.updatePage();
+        return this._page;
+    }
+    async click(elementName) {
+        try {
+            const selector = this[elementName];
+            await this.page.waitForSelector(selector, {
+                waitFor: "visible",
+                timeout: 10000,
+            });
 
-  async getText(elementName) {
-    const selector = this[elementName];
-    logger.error('`Get text: ${elementName}`');
-    return await this.page.locator(selector).textContent();
-  }
+            return this.page.locator(selector).click();
+        } catch (error) {
+            logger.error("Error occurred:", error);
+        }
+    }
 
-  // async getRole(elementName) {
-  //   const selector = this[elementName];
-  //   return await this.page.locator(selector).innerText();
-  // }
+    async type(elementName, product) {
+        try {
+            const selector = this[elementName];
+            await this.page.locator(selector).type(product);
+        } catch (error) {
+            logger.error("Error occurred:", error);
+        }
+    }
 
-  async navigate(url) {
-    logger.error('`Navigated to: ${url}`');
-    return await this.page.goto(url);
-   
-  }
+    async getText(elementName) {
+        try {
+            const selector = this[elementName];
+            return await this.page.locator(selector).textContent();
+        } catch (error) {
+            logger.error("Error occurred:", error);
+        }
+    }
+
+    // async getRole(elementName) {
+    //   const selector = this[elementName];
+    //   return await this.page.locator(selector).innerText();
+    // }
+
+    async navigate(url) {
+        try {
+            return await this.page.goto(url);
+        } catch (error) {
+            logger.error("Error occurred:", error);
+        }
+    }
 }
 
 module.exports = { BaseElements };
