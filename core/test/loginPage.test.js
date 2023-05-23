@@ -1,9 +1,8 @@
 const { expect } = require("chai");
 const { PageFactory } = require("../app/pageobjects/pageFactory");
 
-const pageFactory = new PageFactory();
-
 describe('Testing Login function for "Oz" website', () => {
+    const pageFactory = new PageFactory();
     it("As a user, I can not login with invalid email", async () => {
         await pageFactory.mainPage.navigate("https://oz.by/");
         await pageFactory.loginPage.click("enterPage");

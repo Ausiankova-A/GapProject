@@ -1,9 +1,8 @@
 const { expect } = require("chai");
 const { PageFactory } = require("../app/pageobjects/pageFactory");
 
-const pageFactory = new PageFactory();
-
 describe('Testing Cart for "Oz" website', () => {
+    const pageFactory = new PageFactory();
     it("As a user, I can add product to the cart", async () => {
         await pageFactory.mainPage.navigate("https://oz.by/");
         await pageFactory.search.type(

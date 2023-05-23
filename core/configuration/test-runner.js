@@ -1,12 +1,16 @@
 const Mocha = require("mocha");
 const fs = require("fs");
 const path = require("path");
+// const  AllureReporter  = require('mocha-allure-reporter');
 
 const testDir = "./core/test";
 
+
 const mocha = new Mocha({
     timeout: 50000,
-    rootHooks: require("../test/globalHooks").mochaHooks,
+    rootHooks: require("../test/hooks/globalHooks").mochaHooks,
+    reporter: 'mocha-allure-reporter',
+    
 });
 
 switch (process.env.npm_config_suite) {
@@ -17,6 +21,9 @@ switch (process.env.npm_config_suite) {
         mocha.grep(/bla/);
         break;
 }
+
+// const allureReporter = new AllureReporter();
+// mocha.reporter(allureReporter);
 
 (async function loadTests() {
     try {
@@ -32,3 +39,4 @@ switch (process.env.npm_config_suite) {
         console.log(err);
     }
 })();
+
