@@ -1,5 +1,5 @@
 const { BaseElements } = require("../baseElements.js");
-const logger = require("../../../../logger");
+const logger = require("../../helpers/logger.js");
 
 class Cart extends BaseElements {
     constructor() {
