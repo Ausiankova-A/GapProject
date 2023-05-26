@@ -1,17 +1,22 @@
-const winston = require("winston");
+const winston = require('winston');
+const path = require('path');
 const { combine, timestamp, printf } = winston.format;
 const logFormat = printf(({ level, message, timestamp }) => {
     return `[${timestamp}] ${level}: ${message}`;
 });
 
 const logger = winston.createLogger({
-    level: "error",
+    level: 'info',
     format: combine(timestamp(), logFormat),
     transports: [
         new winston.transports.Console({
-            format: winston.format.cli({ colors: { error: "red" } }),
+            level: 'info',
+            format: winston.format.cli({ colors: { error: 'red' } }),
         }),
-        new winston.transports.File({ filename: "logs.log", level: "error" }),
+        new winston.transports.File({
+            filename: path.join(__dirname, './reports/logs.log'),
+            level: 'info',
+        }),
     ],
 });
 

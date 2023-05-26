@@ -1,5 +1,5 @@
-const logger = require("../helpers/logger");
-const ph = require("../pageHolder");
+const logger = require('../helpers/logger');
+const ph = require('../pageHolder');
 
 class BaseElements {
     constructor() {
@@ -14,7 +14,7 @@ class BaseElements {
             if (ph.page) {
                 this._page = ph.page;
             } else {
-                logger.error("Error occurred:", error);
+                logger.error('Error occurred:', error);
             }
         }
     }
@@ -27,13 +27,13 @@ class BaseElements {
         try {
             const selector = this[elementName];
             await this.page.waitForSelector(selector, {
-                waitFor: "visible",
+                waitFor: 'visible',
                 timeout: 10000,
             });
-
+            logger.info(`I click on ${elementName}`);
             return this.page.locator(selector).click();
         } catch (error) {
-            logger.error("Error occurred:", error);
+            logger.error('Error occurred:', error);
         }
     }
 
@@ -41,17 +41,19 @@ class BaseElements {
         try {
             const selector = this[elementName];
             await this.page.locator(selector).type(product);
+            logger.info(`I type ${product} to ${elementName}`);
         } catch (error) {
-            logger.error("Error occurred:", error);
+            logger.error('Error occurred:', error);
         }
     }
 
     async getText(elementName) {
         try {
             const selector = this[elementName];
+            logger.info(`I get text from element ${elementName}`);
             return await this.page.locator(selector).textContent();
         } catch (error) {
-            logger.error("Error occurred:", error);
+            logger.error('Error occurred:', error);
         }
     }
 
@@ -62,9 +64,10 @@ class BaseElements {
 
     async navigate(url) {
         try {
+            logger.info(`I navigate to ${url}`);
             return await this.page.goto(url);
         } catch (error) {
-            logger.error("Error occurred:", error);
+            logger.error('Error occurred:', error);
         }
     }
 }
