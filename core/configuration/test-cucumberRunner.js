@@ -1,16 +1,16 @@
-const { loadConfiguration, runCucumber } = require('@cucumber/cucumber/api');
-const path = require('path');
+const {
+    loadConfiguration,
+    loadSupport,
+    runCucumber,
+} = require('@cucumber/cucumber/api');
+
 
 (async function runTests() {
-  const featurePaths = [path.join(__dirname, '../test/features/*.feature')];
-  const stepPaths = [path.join(__dirname, '../step-definitions/*.js')];
-  const { runConfiguration } = await loadConfiguration({ 
-      featurePaths,
-      runtimeOptions: {
-          require: stepPaths 
-      }
-  });
-  console.log(runConfiguration);
-  const { success } = await runCucumber(runConfiguration);
-  return success;
+    const configFile = './core/configuration/cucumber.js';
+    const { runConfiguration } = await loadConfiguration({
+        file: configFile,
+    });
+    const support = await loadSupport(runConfiguration);
+    const { success } = await runCucumber({ ...runConfiguration, support });
+    return success;
 })();
