@@ -14,6 +14,9 @@ class LoginPage extends BaseElements {
         this.loginErrorMessage = '#loginForm .i-popover__line';
         this.passwordErrorMessage =
             '//*[@class="i-input-group__popover i-input-group__popover_login i-input-group__popover_visible"]/div/div/div';
+            this.personalAccountButton = '.top-panel__userbar__user__name__inner';
+            this.personalAccountHeader = '.l-row-user-name h1';
+            this.exitButton = '.l-col-3 .uc-nav.uc-nav-last li a'
     }
     async loginToApplication(userName, password) {
         try {

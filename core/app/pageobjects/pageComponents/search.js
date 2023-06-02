@@ -8,8 +8,7 @@ class Search extends BaseElements {
     constructor() {
         super();
         this.searchField = '#top-s';
-        this.firstSearchResult =
-            '.viewer-type-card_has-filter.viewer-type-card li:first-child';
+        this.firstSearchResult = '.viewer-type-card_has-filter.viewer-type-card li:first-child';
         this.productName = '//*[@class="b-product-title__heading"]/h1';
         this.searchButton = '.top-panel__search__btn__item';
         this.invalidSearchResult = '.breadcrumbs__list__li.active';
