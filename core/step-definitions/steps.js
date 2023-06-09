@@ -1,8 +1,8 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const { expect } = require('chai');
-const { PageFactory } = require('../app/pageobjects/pageFactory');
-const ph = require('../app/pageHolder');
-const logger = require('../app/helpers/loggerCucumber');
+const { PageFactory } = require('../app/ui/pageobjects/pageFactory');
+const ph = require('../app/ui/pageHolder');
+const logger = require('../app/ui/helpers/loggerCucumber');
 
 const pageFactory = new PageFactory();
 

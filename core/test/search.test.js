@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { PageFactory } = require('../app/pageobjects/pageFactory');
+const { PageFactory } = require('../app/ui/pageobjects/pageFactory');
 
 describe('Testing "Search" function for "Oz" website', () => {
     const pageFactory = new PageFactory();

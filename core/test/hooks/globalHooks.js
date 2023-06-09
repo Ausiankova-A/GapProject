@@ -1,4 +1,4 @@
-const ph = require('../../app/pageHolder');
+const ph = require('../../app/ui/pageHolder');
 
 exports.mochaHooks = {
     async beforeAll() {

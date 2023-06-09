@@ -18,10 +18,8 @@ module.exports = {
             pattern: 'rerun.txt',
             nonZeroExitCodeTests: ['./features/test.feature'],
         },
-        reportDir: path.join(
-            __dirname,
-            '../app/helpers/reportsCucumber/allure-results'
-        ),
+
+        format: [path.join(__dirname, "./reporter.js")],
         cucumberArgs: [
             `--world-parameters={"accountType":"current"}`,
             `--tags=${process.env.TEST_TAGS || ''}`,

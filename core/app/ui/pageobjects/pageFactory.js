@@ -1,12 +1,12 @@
 const { Search } = require('./pageComponents/search');
-const { ItemPage } = require('../pageobjects/itemPage');
-const { Cart } = require('../pageobjects/pageComponents/cart');
-const { LoginPage } = require('../pageobjects/pageComponents/login');
+const { ItemPage } = require('./itemPage');
+const { Cart } = require('./pageComponents/cart');
+const { LoginPage } = require('./pageComponents/login');
 const {
     PersonalAccount,
-} = require('../pageobjects/pageComponents/personalAccount');
-const { MainPage } = require('../pageobjects/mainPage');
-const { LeftNavBar } = require('../pageobjects/leftNavigationBar');
+} = require('./pageComponents/personalAccount');
+const { MainPage } = require('./mainPage');
+const { LeftNavBar } = require('./leftNavigationBar');
 
 class PageFactory {
     constructor() {
