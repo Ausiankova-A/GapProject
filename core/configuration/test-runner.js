@@ -1,9 +1,9 @@
 const Mocha = require('mocha');
 const fs = require('fs');
 const path = require('path');
-const generateAllureReport = require('../app/helpers/generateAllure');
+const generateAllureReport = require('../app/ui/helpers/generateAllure');
 
-const testDir = './core/test';
+const testDir = ['./core/test', './core/test/api'];
 
 const mocha = new Mocha({
     timeout: 50000,
@@ -12,7 +12,7 @@ const mocha = new Mocha({
     reporterOptions: {
         targetDir: path.join(
             __dirname,
-            '../app/helpers/reports/allure-results'
+            '../app/ui/helpers/reports/allure-results'
         ),
     },
 });
@@ -24,17 +24,26 @@ switch (process.env.npm_config_suite) {
     case '_cart':
         mocha.grep(/_cart/);
         break;
+    case '_api':
+        mocha.grep(/_api/);
+        break;
 }
 
 (async function loadTests() {
     try {
-        const files = fs.readdirSync(testDir);
-        files
-            .filter((file) => file.endsWith('.test.js'))
-            .map((file) => path.join(testDir, file))
-            .forEach((file) => {
-                mocha.addFile(file);
-            });
+        let files = [];
+        for (const dir of testDir) {
+            files.push(
+                ...fs
+                    .readdirSync(dir)
+                    .filter((file) => file.endsWith('.test.js'))
+                    .map((file) => path.join(dir, file))
+            );
+        }
+        files.forEach((file) => {
+            mocha.addFile(file);
+        });
+
         mocha.run(async function (failures) {
             await generateAllureReport();
             process.exitCode = failures ? 1 : 0;

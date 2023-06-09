@@ -1,5 +1,5 @@
 const { BaseElements } = require('../baseElements.js');
-const { ItemPage } = require('../itemPage');
+const { ItemPage } = require('../itemPage.js');
 const logger = require('../../helpers/logger.js');
 
 const itemPage = new ItemPage();

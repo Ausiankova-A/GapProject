@@ -6,7 +6,7 @@ const {
   } = require('./utils');
   const {
     PageFactory,
-  } = require('../app/pageobjects/pageFactory');
+  } = require('../app/ui/pageobjects/pageFactory');
 
   const pageFactory = new PageFactory();
   

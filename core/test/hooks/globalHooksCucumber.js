@@ -4,8 +4,8 @@ const {
     Before,
     After,
 } = require('@cucumber/cucumber');
-const ph = require('../../app/pageHolder');
-const generateAllureReport = require('../../app/helpers/generateAllurecucumber');
+const ph = require('../../app/ui/pageHolder');
+const generateAllureReport = require('../../app/ui/helpers/generateAllurecucumber');
 
 BeforeAll(async () => {
     await ph.initBrowser();

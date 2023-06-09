@@ -1,5 +1,5 @@
 // const { expect } = require('chai');
-// const { PageFactory } = require('../app/pageobjects/pageFactory');
+// const { PageFactory } = require('../app/ui/pageobjects/pageFactory');
 
 // describe('Testing Cart for "Oz" website', () => {
 //     const pageFactory = new PageFactory();
